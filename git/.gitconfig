@@ -2,3 +2,20 @@
 [user]
 	name = Ankur Oberoi
 	email = aoberoi@gmail.com
+[core]
+	excludesfile = /Users/ankur/.gitignore_global
+[url "git+ssh://git@slack-github.com"]
+	insteadOf = "https://slack-github.com"
+	insteadOf = "git://slack-github.com"
+[merge]
+	keepBackup = false
+	tool = p4merge
+[mergetool "p4merge"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$PWD/$BASE\"" "\"$PWD/$REMOTE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$MERGED\""
+	keepTemporaries = false
+	trustExitCode = false
+	keepBackup = false
+[diff]
+	tool = p4merge
+[difftool "p4merge"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$REMOTE\"" "\"$LOCAL\""

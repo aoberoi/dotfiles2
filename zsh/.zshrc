@@ -12,20 +12,43 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-source $HOME/.dotfiles/antigen/antigen.zsh
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
 
-antigen use oh-my-zsh
+# if the init scipt doesn't exist
+if ! zgen saved; then
+    echo "Creating a zgen save"
 
-antigen bundle git
-antigen bundle emoji
-antigen bundle encode64
-antigen bundle z
+    zgen oh-my-zsh
 
-antigen bundle zsh-users/zsh-completions
-antigen bundle lukechilds/zsh-better-npm-completion
-antigen bundle lukechilds/zsh-nvm
-antigen bundle tomsquest/nvm-auto-use.zsh
+    # plugins
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/emoji
+    zgen oh-my-zsh plugins/encode64
 
-antigen theme clean
+    # zgen load lukechilds/zsh-nvm
+    zgen load zsh-users/zsh-completions
 
-antigen apply
+    # completions
+    zgen load zsh-users/zsh-completions src
+
+    # theme
+    zgen oh-my-zsh themes/clean
+
+    # save all to init script
+    zgen save
+fi
+
+# load nvm
+export NVM_DIR="$HOME/.nvm"
+source "$NVM_DIR/nvm.sh"
+
+# load rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# added by travis gem
+[ -f /Users/ankur/.travis/travis.sh ] && source /Users/ankur/.travis/travis.sh
+
+# swiftenv
+export PATH="/Users/ankur/.swiftenv/shims:${PATH}"
+source '/usr/local/Cellar/swiftenv/1.3.0/bin/../libexec/../completions/swiftenv.zsh'

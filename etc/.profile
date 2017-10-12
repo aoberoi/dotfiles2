@@ -15,3 +15,8 @@ if [ -d /usr/local/sbin ] ; then
     PATH="/usr/local/sbin:$PATH"
   fi
 fi
+
+if [ -d "$HOME/Developer/gocode" ] ; then
+  export GOPATH="$HOME/Developer/gocode"
+  PATH="$PATH:$GOPATH/bin"
+fi
