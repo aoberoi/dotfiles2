@@ -2,7 +2,7 @@
 
 1. Clone the repo into `~/.dotfiles`.
 2. Get the submodules (for antigen): `git submodule init; git submodule update`.
-3. Use GNU Stow to create symlinks at the top level of the home directory (e.g.
+3. Use GNU Stow from the `~/.dotfiles` directory to create symlinks at the top level of the home directory (e.g.
    `stow zsh`).
 4. Install zgen:
   - `git remote add -f zgen https://github.com/tarjoilija/zgen.git`
