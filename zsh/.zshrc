@@ -26,9 +26,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/emoji
     zgen oh-my-zsh plugins/encode64
 
-    # zgen load lukechilds/zsh-nvm
-    zgen load zsh-users/zsh-completions
-
     # completions
     zgen load zsh-users/zsh-completions src
 
@@ -49,6 +46,14 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # added by travis gem
 [ -f /Users/ankur/.travis/travis.sh ] && source /Users/ankur/.travis/travis.sh
 
+# golang
+if [ -d "$HOME/Developer/go" ]
+then
+	export GOPATH=$HOME/Developer/go
+	export PATH=$PATH:$GOPATH/bin
+else
+	echo "Error: set up a Go workspace in $HOME/Developer/go"
+fi
+
 # swiftenv
-export PATH="/Users/ankur/.swiftenv/shims:${PATH}"
-source '/usr/local/Cellar/swiftenv/1.3.0/bin/../libexec/../completions/swiftenv.zsh'
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi

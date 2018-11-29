@@ -7,3 +7,4 @@ fi
 
 # added by travis gem
 [ -f /Users/ankur/.travis/travis.sh ] && source /Users/ankur/.travis/travis.sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
