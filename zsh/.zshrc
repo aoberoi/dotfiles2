@@ -42,18 +42,3 @@ source "$NVM_DIR/nvm.sh"
 
 # load rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# added by travis gem
-[ -f /Users/ankur/.travis/travis.sh ] && source /Users/ankur/.travis/travis.sh
-
-# golang
-if [ -d "$HOME/Developer/go" ]
-then
-	export GOPATH=$HOME/Developer/go
-	export PATH=$PATH:$GOPATH/bin
-else
-	echo "Error: set up a Go workspace in $HOME/Developer/go"
-fi
-
-# swiftenv
-if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi

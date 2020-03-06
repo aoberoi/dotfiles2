@@ -16,7 +16,15 @@ if [ -d /usr/local/sbin ] ; then
   fi
 fi
 
-if [ -d "$HOME/Developer/gocode" ] ; then
-  export GOPATH="$HOME/Developer/gocode"
-  PATH="$PATH:$GOPATH/bin"
+# golang
+if [ -d "$HOME/Developer/gocode" ]
+then
+	export GOPATH=$HOME/Developer/go
+	export PATH=$PATH:$GOPATH/bin
+else
+	echo "Error: set up a Go workspace in $HOME/Developer/go"
 fi
+
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
