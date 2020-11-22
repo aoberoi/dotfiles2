@@ -20,3 +20,5 @@ if [ -d "$HOME/Developer/gocode" ] ; then
   export GOPATH="$HOME/Developer/gocode"
   PATH="$PATH:$GOPATH/bin"
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
